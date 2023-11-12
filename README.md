@@ -1,1 +1,1 @@
-# Marzban-m-node-sh
+# Marzban Multi-Node SH.

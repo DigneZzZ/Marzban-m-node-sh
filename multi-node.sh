@@ -21,10 +21,10 @@ Visit: https://openode.ru
 '
 sleep 2s
 # Обновление и установка пакетов
-sudo apt-get update -y && sudo apt-get upgrade -y
+sudo apt-get update -qq && sudo apt-get upgrade -yqq
 
 # Установка необходимых пакетов
-apt install curl socat git -y
+apt install curl socat git -yqq
 
 # Установка Docker
 curl -fsSL https://get.docker.com | sh

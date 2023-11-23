@@ -109,7 +109,10 @@ ufw allow proto tcp from any to any port 6001:6010
 ufw allow proto tcp from any to any port 62050:62051
 
 # Перезагружаем ufw для применения изменений
-ufw disable -y && ufw enable -y
+sudo ufw --force disable
+
+sudo ufw --force enable
+
 
 echo "Правила добавлены успешно."
 echo "если вы используете собственные порты отличные от моих, добавьте их вручную, командой ufw allow XXXXX - где XXXXX ваш порт."

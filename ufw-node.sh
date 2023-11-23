@@ -78,13 +78,13 @@ fi
 SSH_PORT=$(grep -oP '(?<=Port )\d+' /etc/ssh/sshd_config)
 
 # Проверяем, существует ли уже правило для порта SSH
-if sudo ufw status | grep -q $SSH_PORT; then
+if sudo ufw status | grep -q $SSH_PORT/tcp; then
     printf "${GREEN}Правило для SSH-порта уже существует. Пропускаем добавление.${NC}\n"
 else
     # настройка правил фаервола
     sudo ufw default deny incoming # отклонять все входящие соединения
     sudo ufw default allow outgoing # разрешать все исходящие соединения
-    sudo ufw allow $SSH_PORT # разрешать ssh-соединения
+    sudo ufw allow $SSH_PORT/tcp # разрешать ssh-соединения
     printf "${GREEN}Автоматически был считан из файла sshd_config и добавлен в исключения порт SSH : $SSH_PORT/tcp ${NC}\n"
 fi
 
@@ -98,10 +98,10 @@ if [[ ! $ip_address =~ ^[0-9]+\.[0-9]+\.[0-9]+\.[0-9]+$ ]]; then
 fi
 
 # Добавляем правило для диапазона портов 5001-5010
-ufw allow from $ip_address to any port 5001:5010
+ufw allow proto tcp from $ip_address to any port 5001:5010/tcp
 
 # Добавляем правило для диапазона портов 6001-6010
-ufw allow from $ip_address to any port 6001:6010
+ufw allow proto tcp from $ip_address to any port 6001:6010/tcp
 
 # Перезагружаем ufw для применения изменений
 ufw reload

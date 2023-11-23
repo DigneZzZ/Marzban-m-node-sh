@@ -88,22 +88,25 @@ else
     printf "${GREEN}Автоматически был считан из файла sshd_config и добавлен в исключения порт SSH : $SSH_PORT/tcp ${NC}\n"
 fi
 
-# Получаем IP от пользователя
-read -p "Введите IP адрес мэйн сервера: " ip_address
+## Получаем IP от пользователя
+#read -p "Введите IP адрес мэйн сервера: " ip_address
 
 # Проверяем, что IP введено корректно
-if [[ ! $ip_address =~ ^[0-9]+\.[0-9]+\.[0-9]+\.[0-9]+$ ]]; then
-    echo "Некорректный формат IP"
-    exit 1
-fi
+#if [[ ! $ip_address =~ ^[0-9]+\.[0-9]+\.[0-9]+\.[0-9]+$ ]]; then
+#    echo "Некорректный формат IP"
+3    exit 1
+#fi
 
 # Добавляем правило для диапазона портов 5001-5010
-ufw allow proto tcp from $ip_address to any port 5001:5010
+#ufw allow proto tcp from $ip_address to any port 5001:5010
+ufw allow proto tcp from any to any port 5001:5010
 
 # Добавляем правило для диапазона портов 6001-6010
-ufw allow proto tcp from $ip_address to any port 6001:6010
+#ufw allow proto tcp from $ip_address to any port 6001:6010
+ufw allow proto tcp from any to any port 6001:6010
 # Добавляем правило для стандартных портов
-ufw allow proto tcp from $ip_address to any port 62050:62051
+#ufw allow proto tcp from $ip_address to any port 62050:62051
+ufw allow proto tcp from any to any port 62050:62051
 
 # Перезагружаем ufw для применения изменений
 ufw disable -y && ufw enable -y

@@ -78,13 +78,13 @@ fi
 SSH_PORT=$(grep -oP '(?<=Port )\d+' /etc/ssh/sshd_config)
 
 # Проверяем, существует ли уже правило для порта SSH
-if sudo ufw status | grep -q $SSH_PORT/tcp; then
+if sudo ufw status | grep -q $SSH_PORT; then
     printf "${GREEN}Правило для SSH-порта уже существует. Пропускаем добавление.${NC}\n"
 else
     # настройка правил фаервола
     sudo ufw default deny incoming # отклонять все входящие соединения
     sudo ufw default allow outgoing # разрешать все исходящие соединения
-    sudo ufw allow $SSH_PORT/tcp # разрешать ssh-соединения
+    sudo ufw allow $SSH_PORT # разрешать ssh-соединения
     printf "${GREEN}Автоматически был считан из файла sshd_config и добавлен в исключения порт SSH : $SSH_PORT/tcp ${NC}\n"
 fi
 

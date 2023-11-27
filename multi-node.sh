@@ -35,6 +35,8 @@ touch /var/lib/marzban-node/server1.pem
 touch /var/lib/marzban-node/server2.pem
 
 # Переход в директорию Marzban-node
+cd 
+mkdir -p Marzban-node
 cd Marzban-node
 
 # Запрашиваем количество Main серверов

@@ -15,6 +15,7 @@ services:
       SSL_CERT_FILE: "/var/lib/marzban-node/ssl_cert.pem"
       SSL_KEY_FILE: "/var/lib/marzban-node/ssl_key.pem"
       SSL_CLIENT_CERT_FILE: "/var/lib/marzban-node/server1.pem"
+      SERVICE_PROTOCOL: rest
   
   node-2:
   
@@ -32,3 +33,4 @@ services:
       SSL_CERT_FILE: "/var/lib/marzban-node/ssl_cert.pem"
       SSL_KEY_FILE: "/var/lib/marzban-node/ssl_key.pem"
       SSL_CLIENT_CERT_FILE: "/var/lib/marzban-node/server2.pem"
+      SERVICE_PROTOCOL: rest

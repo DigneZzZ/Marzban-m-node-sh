@@ -12,8 +12,8 @@ services:
     environment:
       SERVICE_PORT: 5001
       XRAY_API_PORT: 6001
-      SSL_CERT_FILE: "/var/lib/marzban-node/ssl_cert.pem"
-      SSL_KEY_FILE: "/var/lib/marzban-node/ssl_key.pem"
+ #     SSL_CERT_FILE: "/var/lib/marzban-node/ssl_cert.pem"
+ #     SSL_KEY_FILE: "/var/lib/marzban-node/ssl_key.pem"
       SSL_CLIENT_CERT_FILE: "/var/lib/marzban-node/server1.pem"
       SERVICE_PROTOCOL: rest
   
@@ -30,7 +30,7 @@ services:
     environment:
       SERVICE_PORT: 5002
       XRAY_API_PORT: 6002
-      SSL_CERT_FILE: "/var/lib/marzban-node/ssl_cert.pem"
-      SSL_KEY_FILE: "/var/lib/marzban-node/ssl_key.pem"
+  #    SSL_CERT_FILE: "/var/lib/marzban-node/ssl_cert.pem"
+  #    SSL_KEY_FILE: "/var/lib/marzban-node/ssl_key.pem"
       SSL_CLIENT_CERT_FILE: "/var/lib/marzban-node/server2.pem"
       SERVICE_PROTOCOL: rest
